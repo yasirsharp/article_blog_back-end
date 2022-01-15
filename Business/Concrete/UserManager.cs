@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -22,7 +23,7 @@ namespace Business.Concrete
         public IResult Add(User user)
         {
             _userDal.Add(user);
-            return new SuccessResult("Kullanıcı eklendi.");
+            return new SuccessResult(SuccessMessages.UserAdded);
         }
 
         public IResult Delete(User user)
@@ -33,18 +34,18 @@ namespace Business.Concrete
         public IDataResult<IList<User>> GetAll()
         {
             var result = _userDal.GetAll();
-            if (result == null) return new ErrorDataResult<IList<User>>("Kullanıcılar listelenemedi!");
-            return new SuccessDataResult<IList<User>>(result, "Kullanıcılar listelendi.");
+            if (result == null) return new ErrorDataResult<IList<User>>(ErrorMessages.ErrorUsersListed);
+            return new SuccessDataResult<IList<User>>(result, SuccessMessages.UsersListed);
         }
 
         public IDataResult<User> GetByEmail(string mail)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<User>(_userDal.Get(p => p.Email == mail));
         }
 
-        public IDataResult<User> GetById(int id)
+        public IDataResult<User> GetByUserCode(int userCode)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<User>(_userDal.Get(p => p.UserCode == userCode));
         }
 
         public IResult Update(User user)
