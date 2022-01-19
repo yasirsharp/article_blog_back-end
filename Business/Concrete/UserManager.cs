@@ -3,6 +3,7 @@ using Business.Constants;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using Entities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,12 @@ namespace Business.Concrete
             return new SuccessDataResult<IList<User>>(result, SuccessMessages.UsersListed);
         }
 
+        public IDataResult<List<ArticleOfUser>> GetArticles(User user)
+        {
+            var result = _userDal.GetArticles(user);
+            return new SuccessDataResult<List<ArticleOfUser>>(result, SuccessMessages.GetArticlesOfUser);
+        }
+
         public IDataResult<User> GetByEmail(string mail)
         {
             return new SuccessDataResult<User>(_userDal.Get(p => p.Email == mail));
@@ -48,9 +55,15 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(p => p.UserCode == userCode));
         }
 
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user), SuccessMessages.ClaimsListed);
+        }
+
         public IResult Update(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Update(user);
+            return new SuccessResult(SuccessMessages.UserUpdated);
         }
     }
 }

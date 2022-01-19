@@ -12,11 +12,14 @@
         public static string ArticlesListed = "Makaleler listelendi.";
         #endregion
 
-        #region Author
-        public static string AuthorAdded = "Yazar eklendi.";
-        public static string AuthorsListed;
+        #region Claims
+        public static string ClaimsListed= "Yetkiler Listelendi";
         #endregion
 
 
+        public static string RegisterSuccessful = "Kayıt başarılı.";
+        public static string LoginSuccess = "Giriş başarılı.";
+        public static string UserUpdated = "Kullanıcı güncellendi.";
+        public static string GetArticlesOfUser = "Kullanıcının makaleleri getirildi.";
     }
 }

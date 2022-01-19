@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.Dto
 {
-    public class Author : IEntity
+    public class ArticleOfUser:IDto
     {
         public int UserCode { get; set; }
-        public string UserName { get; set; }
-        public int AuthorId { get; set; }
+        public int ArticleId { get; set; }
+        public string ArticleText { get; set; }
     }
 }

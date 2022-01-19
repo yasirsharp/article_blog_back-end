@@ -17,7 +17,8 @@ namespace DataAccess.Concrete.EntityFramework
         }
 
         public DbSet<User> Users{ get; set; }
-        public DbSet<Author> Authors{ get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 }

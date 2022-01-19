@@ -9,8 +9,9 @@ namespace Entities.Concrete
 {
     public class Article:IEntity
     {
-        public string ArticleText { get; set; }
         public int ArticleId { get; set; }
+        public int UserCode { get; set; }
+        public string ArticleText { get; set; }
 
     }
 }

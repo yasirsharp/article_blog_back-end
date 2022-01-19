@@ -14,12 +14,4 @@ namespace Core.Utilities.Security.Encryption
             return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
         }
     }
-
-    public class SigningCredentialsHelper
-    {
-        public static SigningCredentials CreateSigningCredential(string securityKey)
-        {
-            return new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
-        }
-    }
 }
