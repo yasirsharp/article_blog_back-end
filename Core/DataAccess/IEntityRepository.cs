@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 namespace Core.DataAccess
 {
     /// <summary>
+    /// T nesnesi sınırlandırılmıştır. (ayrıca bkz: Generic Constraint)
     /// Verilebilecek T özellikleri
-    /// <list type="bullet">  
-    /// <item> class </item>  
-    /// <item> IEntity - Object </item>  
-    /// <item> new(): Instance oluşturulabilecek bir nesne </item>  
+    /// <list type="number">  
+    ///     <item> class: Referance Type </item>  
+    ///     <item> IEntity - Object </item>  
+    ///     <item> new(): Instance oluşturulabilecek bir nesne </item>  
     /// </list>
+    /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        IList<T> GetAll(Expression<Func<T, bool>> filter = null);
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);
         T Get(Expression<Func<T, bool>> filter);
 
         void Add(T entity);

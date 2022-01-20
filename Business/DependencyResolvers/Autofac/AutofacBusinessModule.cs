@@ -17,7 +17,13 @@ namespace Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
+
+            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
+            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+
+            builder.RegisterType<ArticleManager>().As<IArticleService>().SingleInstance();
+            builder.RegisterType<EfArticleDal>().As<IArticleDal>().SingleInstance();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

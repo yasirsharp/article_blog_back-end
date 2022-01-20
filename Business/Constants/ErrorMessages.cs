@@ -12,6 +12,6 @@ namespace Business.Constants
         public static string ErrorUsersListed = "Kullanıcılar listelenemedi!";
         public static string UserNotFound = "Kullanıcı bulunamadı!";
         public static string PasswordError = "Hatalı parola!";
-        internal static string UserAlreadyExists;
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut!";
     }
 }

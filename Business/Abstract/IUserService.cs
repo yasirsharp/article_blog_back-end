@@ -15,7 +15,7 @@ namespace Business.Abstract
         IResult Delete(User user);
         IResult Update(User user);
 
-        IDataResult<IList<User>> GetAll();
+        IDataResult<List<User>> GetAll();
         IDataResult<List<OperationClaim>> GetClaims(User user);
         IDataResult<List<ArticleOfUser>> GetArticles(User user);
         IDataResult<User> GetByUserCode(int userCode);

@@ -16,7 +16,6 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from articles in context.Articles
                              join users in context.Users
                                 on articles.UserCode equals user.UserCode
-                             where users.UserCode == user.UserCode
                              select new ArticleOfUser
                              {
                                  ArticleText = articles.ArticleText,

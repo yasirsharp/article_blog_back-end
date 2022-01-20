@@ -24,7 +24,7 @@ namespace Business.Concrete
         public IDataResult<User> Login(UserForLogin userForLogin)
         {
             var userToCheck = _userService.GetByEmail(userForLogin.Email);
-            if (userToCheck == null) return new ErrorDataResult<User>(ErrorMessages.UserNotFound);
+            if (userToCheck.Data == null) return new ErrorDataResult<User>(ErrorMessages.UserNotFound);
 
             if (!HashingHelper.VerifyPasswordHash(userForLogin.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
                 return new ErrorDataResult<User>(ErrorMessages.PasswordError);
@@ -53,7 +53,7 @@ namespace Business.Concrete
 
         public IResult UserExists(string email)
         {
-            if (_userService.GetByEmail(email) != null)
+            if (_userService.GetByEmail(email).Data != null)
             {
                 return new ErrorResult(ErrorMessages.UserAlreadyExists);
             }

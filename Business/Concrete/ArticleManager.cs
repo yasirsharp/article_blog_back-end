@@ -22,6 +22,7 @@ namespace Business.Concrete
 
         public IResult Add(Article article)
         {
+            _articleDal.Add(article);
             return new SuccessResult(SuccessMessages.ArticleAdded);
         }
 
@@ -37,7 +38,8 @@ namespace Business.Concrete
 
         public IDataResult<List<Article>> GetAllArticlesByAuthor(int authorCode)
         {
-            throw new NotImplementedException();
+            var result = _articleDal.GetAll(article=>article.UserCode == authorCode);
+            return new SuccessDataResult<List<Article>>(result, SuccessMessages.ArticlesListed);
         }
 
         public IDataResult<Article> GetById(int articleId)

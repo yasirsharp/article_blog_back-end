@@ -32,11 +32,11 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IDataResult<IList<User>> GetAll()
+        public IDataResult<List<User>> GetAll()
         {
             var result = _userDal.GetAll();
-            if (result == null) return new ErrorDataResult<IList<User>>(ErrorMessages.ErrorUsersListed);
-            return new SuccessDataResult<IList<User>>(result, SuccessMessages.UsersListed);
+            if (result == null) return new ErrorDataResult<List<User>>(ErrorMessages.ErrorUsersListed);
+            return new SuccessDataResult<List<User>>(result, SuccessMessages.UsersListed);
         }
 
         public IDataResult<List<ArticleOfUser>> GetArticles(User user)

@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
 
             if (userToLogin.Success)
             {
-                return Ok(userToLogin.Data);
+                return Ok(userToLogin);
             }
 
             return BadRequest(userToLogin.Message);
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
             var registerResult = _authService.Register(userForRegisterDto, userForRegisterDto.Password);
             if (registerResult.Success)
             {
-                return Ok(registerResult.Data);
+                return Ok(registerResult);
             }
 
             return BadRequest(registerResult.Message);
